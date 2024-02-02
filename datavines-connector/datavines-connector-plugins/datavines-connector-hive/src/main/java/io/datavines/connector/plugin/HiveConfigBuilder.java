@@ -27,4 +27,18 @@ public class HiveConfigBuilder extends JdbcConfigBuilder {
                 isEn ? "please enter properties,like key=value;key1=value1" : "请填入参数，格式为key=value;key1=value1", 2, null,
                 "hive.resultset.use.unique.column.names=false");
     }
+
+    /**
+     * 修改hive填入数据库(前端创建数据源)为非必选,但是需要把默认配置删除
+     *
+     * @param isEn
+     * @return
+     */
+    @Override
+    protected InputParam getDatabaseInput(boolean isEn) {
+        return getInputParam("database",
+                isEn ? "database" : "数据库",
+                isEn ? "please enter database" : "请填入数据库", 1, null,
+                null);
+    }
 }
