@@ -16,7 +16,6 @@
  */
 package io.datavines.connector.plugin;
 
-import io.datavines.common.param.form.Validate;
 import io.datavines.common.param.form.type.InputParam;
 
 public class OracleConfigBuilder extends JdbcConfigBuilder {
