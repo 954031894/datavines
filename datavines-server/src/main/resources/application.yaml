@@ -20,11 +20,17 @@ spring:
     allow-circular-references: true
   application:
     name: datavines-server
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://127.0.0.1:5432/datavines
+#    username: postgres
+#    password: 123456
+# 修改数据库信息，默认是PostgreSQL，这里改为MySQL
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://127.0.0.1:5432/datavines
-    username: postgres
-    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/datavines?useUnicode=true&characterEncoding=UTF-8
+    username: datavines
+    password: datavines
     hikari:
       connection-test-query: select 1
       minimum-idle: 5
@@ -86,10 +92,14 @@ spring:
     activate:
       on-profile: mysql
   datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/datavines?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/datavines?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
+    url: jdbc:mysql://localhost:3306/datavines?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: datavines
+    password: datavines
   quartz:
     properties:
       org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
