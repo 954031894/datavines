@@ -19,13 +19,20 @@ package io.datavines.connector.plugin;
 import io.datavines.common.param.form.Validate;
 import io.datavines.common.param.form.type.InputParam;
 
-public class OracleConfigBuilder extends JdbcConfigBuilder{
+public class OracleConfigBuilder extends JdbcConfigBuilder {
+    // 修改该方法,schama输入为非必选
     @Override
     protected InputParam getSchemaInput(boolean isEn) {
         return getInputParam("schema",
                 isEn ? "schema" : "模式",
-                isEn ? "please enter schema" : "请填入模式", 1,
-                Validate.newBuilder().setRequired(true).setMessage(isEn ? "please enter schema" : "请填入模式").build(), null);
+                isEn ? "please enter schema" : "请填入模式", 1, null, null);
     }
-
+    // 修改数据库的输入为非必选
+    @Override
+    protected InputParam getDatabaseInput(boolean isEn) {
+        return getInputParam("database",
+                isEn ? "database" : "数据库",
+                isEn ? "please enter database" : "请填入数据库", 1, null,
+                null);
+    }
 }
